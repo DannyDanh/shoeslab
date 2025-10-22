@@ -1,41 +1,40 @@
-import React from 'react'
-import { useRoutes } from 'react-router-dom'
-import Navigation from './components/Navigation'
-import ViewCars from './pages/ViewCars'
-import EditCar from './pages/EditCar'
-import CreateCar from './pages/CreateCar'
-import CarDetails from './pages/CarDetails'
-import './App.css'
+import React from 'react';
+import { useRoutes } from 'react-router-dom';
+import Navigation from './components/Navigation';
+
+import ViewShoes from './pages/ViewShoes';
+import EditShoe from './pages/EditShoe';
+import CreateShoe from './pages/CreateShoe';
+import ShoeDetails from './pages/ShoeDetails';
+
+import './App.css';
 
 const App = () => {
-  let element = useRoutes([
+  const element = useRoutes([
     {
       path: '/',
-      element: <CreateCar title='BOLT BUCKET | Customize' />
+      element: <CreateShoe title="SHOES LAB | Customize" />
     },
     {
-      path:'/customcars',
-      element: <ViewCars title='BOLT BUCKET | Custom Cars' />
+      path: '/customshoes',
+      element: <ViewShoes title="SHOES LAB | Custom Shoes" />
     },
     {
-      path: '/customcars/:id',
-      element: <CarDetails title='BOLT BUCKET | View' />
+      path: '/customshoes/:id',
+      element: <ShoeDetails title="SHOES LAB | View" />
     },
     {
       path: '/edit/:id',
-      element: <EditCar title='BOLT BUCKET | Edit' />
+      element: <EditShoe title="SHOES LAB | Edit" />
     }
-  ])
+  ]);
 
   return (
-    <div className='app'>
-
+    <div className="app">
       <Navigation />
-
-      { element }
-
+      {element}
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

@@ -1,10 +1,15 @@
 {
-  "name": "boltbucket",
+  "name": "shoeslab",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"cd client && vite\" \"cd server && nodemon server\"",
-    "start": "cd server && node server",
-    "build": "cd client && vite build"
+    "dev": "concurrently -k -n client,server -c auto \"npm run dev:client\" \"npm run dev:server\"",
+    "dev:client": "cd client && vite",
+    "dev:server": "cd server && nodemon server.js",
+    "start": "node ./server/server.js",
+    "build": "cd client && vite build",
+    "preview": "cd client && vite preview",
+    "reset": "node ./server/config/reset.js",
+    "seed": "node ./server/config/reset.js"
   },
   "dependencies": {
     "@picocss/pico": "^1.5.7",
